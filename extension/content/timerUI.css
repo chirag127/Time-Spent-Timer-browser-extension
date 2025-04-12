@@ -1,0 +1,154 @@
+/**
+ * Styles for the floating timer UI
+ */
+
+/* Timer container */
+#time-spent-timer-container {
+  position: fixed;
+  z-index: 9999;
+  font-family: 'Arial', sans-serif;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  pointer-events: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Timer positions */
+#time-spent-timer-container.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+#time-spent-timer-container.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+#time-spent-timer-container.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+#time-spent-timer-container.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Timer sizes */
+#time-spent-timer-container.small {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+#time-spent-timer-container.medium {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+#time-spent-timer-container.large {
+  font-size: 16px;
+  padding: 10px 14px;
+}
+
+/* Timer themes */
+#time-spent-timer-container.light {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid #e0e0e0;
+}
+
+#time-spent-timer-container.dark {
+  background-color: rgba(40, 40, 40, 0.9);
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+/* Timer hover effects */
+#time-spent-timer-container:hover {
+  opacity: 1 !important;
+  transform: scale(1.05);
+}
+
+/* Timer controls */
+#time-spent-timer-controls {
+  display: flex;
+  margin-left: 8px;
+  pointer-events: auto;
+}
+
+#time-spent-timer-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 4px;
+  margin-left: 2px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+#time-spent-timer-controls button:hover {
+  opacity: 1;
+}
+
+/* Nudge notification */
+#time-spent-timer-nudge {
+  position: fixed;
+  z-index: 10000;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Arial', sans-serif;
+  max-width: 300px;
+  text-align: center;
+  animation: nudgeAppear 0.3s ease-out, nudgeFade 0.3s ease-in 4.7s forwards;
+  pointer-events: auto;
+}
+
+#time-spent-timer-nudge.light {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: 1px solid #e0e0e0;
+}
+
+#time-spent-timer-nudge.dark {
+  background-color: rgba(40, 40, 40, 0.95);
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+/* Nudge positions - centered by default */
+#time-spent-timer-nudge {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Nudge animations */
+@keyframes nudgeAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes nudgeFade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

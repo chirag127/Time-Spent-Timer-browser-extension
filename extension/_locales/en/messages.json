@@ -1,0 +1,66 @@
+{
+  "appName": {
+    "message": "Time Spent Timer",
+    "description": "The name of the extension"
+  },
+  "appDescription": {
+    "message": "Shows a floating timer and nudges you after too much time on a site.",
+    "description": "The description of the extension"
+  },
+  "firstNudgeMessage": {
+    "message": "Time flies when you're scrolling 🕊 — 5 minutes gone!",
+    "description": "Message for the first nudge"
+  },
+  "secondNudgeMessage": {
+    "message": "10 minutes already! Want to take a stretch break?",
+    "description": "Message for the second nudge"
+  },
+  "thirdNudgeMessage": {
+    "message": "15 minutes here. Still intentional?",
+    "description": "Message for the third nudge"
+  },
+  "resetTimer": {
+    "message": "Reset Timer",
+    "description": "Reset timer button text"
+  },
+  "pauseTimer": {
+    "message": "Pause Timer",
+    "description": "Pause timer button text"
+  },
+  "resumeTimer": {
+    "message": "Resume Timer",
+    "description": "Resume timer button text"
+  },
+  "doNotDisturb": {
+    "message": "Do Not Disturb",
+    "description": "Do Not Disturb button text"
+  },
+  "notificationsOff": {
+    "message": "Notifications Off",
+    "description": "Text when notifications are turned off"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Settings button text"
+  },
+  "currentSite": {
+    "message": "Current site:",
+    "description": "Label for current site"
+  },
+  "timeSpent": {
+    "message": "Time spent:",
+    "description": "Label for time spent"
+  },
+  "notAvailable": {
+    "message": "Not available",
+    "description": "Text when information is not available"
+  },
+  "justStarted": {
+    "message": "Just started",
+    "description": "Text when timer just started"
+  },
+  "justReset": {
+    "message": "Just reset",
+    "description": "Text when timer was just reset"
+  }
+}
