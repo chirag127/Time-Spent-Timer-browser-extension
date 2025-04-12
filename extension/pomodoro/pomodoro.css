@@ -1,0 +1,309 @@
+/**
+ * Styles for the Pomodoro settings page
+ */
+
+:root {
+  --primary-color: #4a6cf7;
+  --primary-hover: #3a5ce7;
+  --text-color: #333;
+  --light-text: #666;
+  --border-color: #e0e0e0;
+  --bg-color: #f9f9f9;
+  --card-bg: #fff;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f0f0f0;
+    --light-text: #b0b0b0;
+    --border-color: #444;
+    --bg-color: #222;
+    --card-bg: #333;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+header p {
+  color: var(--light-text);
+}
+
+.settings-section {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h2 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.setting-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.setting-group label {
+  min-width: 180px;
+  margin-right: 10px;
+}
+
+.setting-group input[type="number"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  max-width: 100px;
+}
+
+.setting-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.setting-group.checkbox input {
+  margin-right: 10px;
+}
+
+.setting-group.checkbox label {
+  min-width: auto;
+}
+
+.pomodoro-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.control-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.control-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.control-button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.control-button.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.control-button .icon {
+  margin-right: 8px;
+}
+
+.pomodoro-status {
+  padding: 15px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.03);
+  margin-top: 15px;
+}
+
+.pomodoro-status.active {
+  background-color: rgba(74, 108, 247, 0.1);
+}
+
+.pomodoro-status.break {
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.pomodoro-status.paused {
+  background-color: rgba(243, 156, 18, 0.1);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.primary-button {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 15px;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.back-button .icon {
+  margin-right: 8px;
+}
+
+#status-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#status-message.success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: var(--success-color);
+  opacity: 1;
+}
+
+#status-message.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: var(--danger-color);
+  opacity: 1;
+}
+
+/* Accessibility - high contrast */
+.high-contrast {
+  --primary-color: #0066cc;
+  --primary-hover: #0052a3;
+  --text-color: #000;
+  --light-text: #333;
+  --border-color: #000;
+  --bg-color: #fff;
+  --card-bg: #fff;
+  --success-color: #006600;
+  --danger-color: #cc0000;
+  --warning-color: #cc6600;
+}
+
+.high-contrast.dark-mode {
+  --primary-color: #4a9eff;
+  --primary-hover: #3a7fcf;
+  --text-color: #fff;
+  --light-text: #ccc;
+  --border-color: #fff;
+  --bg-color: #000;
+  --card-bg: #000;
+  --success-color: #66cc66;
+  --danger-color: #ff6666;
+  --warning-color: #ffcc66;
+}
+
+/* Large text mode */
+.large-text {
+  font-size: 18px;
+}
+
+.large-text h1 {
+  font-size: 32px;
+}
+
+.large-text h2 {
+  font-size: 24px;
+}
+
+.large-text input,
+.large-text button {
+  font-size: 18px;
+}
+
+/* Reduced motion */
+.reduced-motion * {
+  transition: none !important;
+  animation: none !important;
+}
+
+@media (max-width: 600px) {
+  .setting-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .setting-group label {
+    margin-bottom: 5px;
+  }
+  
+  .setting-group input[type="number"] {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .setting-group.checkbox {
+    flex-direction: row;
+  }
+  
+  .pomodoro-controls {
+    flex-direction: column;
+  }
+}

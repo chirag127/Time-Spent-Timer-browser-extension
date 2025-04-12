@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Settings</title>
+  <link rel="stylesheet" href="pomodoro.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Pomodoro Timer Settings</h1>
+      <p>Customize your Pomodoro experience</p>
+    </header>
+    
+    <main>
+      <section class="settings-section">
+        <h2>Timer Settings</h2>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="pomodoro-enabled">
+          <label for="pomodoro-enabled">Enable Pomodoro Timer</label>
+        </div>
+        
+        <div class="setting-group">
+          <label for="work-duration">Work Duration (minutes):</label>
+          <input type="number" id="work-duration" min="1" max="120" value="25">
+        </div>
+        
+        <div class="setting-group">
+          <label for="short-break-duration">Short Break Duration (minutes):</label>
+          <input type="number" id="short-break-duration" min="1" max="30" value="5">
+        </div>
+        
+        <div class="setting-group">
+          <label for="long-break-duration">Long Break Duration (minutes):</label>
+          <input type="number" id="long-break-duration" min="1" max="60" value="15">
+        </div>
+        
+        <div class="setting-group">
+          <label for="sessions-before-long-break">Sessions Before Long Break:</label>
+          <input type="number" id="sessions-before-long-break" min="1" max="10" value="4">
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Behavior Settings</h2>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="auto-start-breaks" checked>
+          <label for="auto-start-breaks">Auto-start breaks</label>
+        </div>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="auto-start-work">
+          <label for="auto-start-work">Auto-start work sessions</label>
+        </div>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="notifications" checked>
+          <label for="notifications">Show notifications</label>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Quick Start</h2>
+        
+        <div class="pomodoro-controls">
+          <button id="start-pomodoro" class="control-button primary">
+            <span class="icon">▶️</span>
+            <span class="label">Start Pomodoro</span>
+          </button>
+          
+          <button id="stop-pomodoro" class="control-button">
+            <span class="icon">⏹️</span>
+            <span class="label">Stop Pomodoro</span>
+          </button>
+        </div>
+        
+        <div id="pomodoro-status" class="pomodoro-status">
+          <p>Pomodoro timer is not active</p>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <button id="save-settings" class="primary-button">Save Settings</button>
+      <button id="back-to-options" class="back-button">
+        <span class="icon">⬅️</span>
+        <span class="label">Back to Settings</span>
+      </button>
+      <div id="status-message"></div>
+    </footer>
+  </div>
+  
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/timer.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="pomodoro-settings.js"></script>
+</body>
+</html>

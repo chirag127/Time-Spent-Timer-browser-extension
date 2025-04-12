@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Settings</title>
+  <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Accessibility Settings</h1>
+      <p>Customize your experience for better accessibility</p>
+    </header>
+    
+    <main>
+      <section class="settings-section">
+        <h2>Visual Settings</h2>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="high-contrast" aria-describedby="high-contrast-desc">
+          <div class="setting-info">
+            <label for="high-contrast">High Contrast Mode</label>
+            <p id="high-contrast-desc" class="setting-description">Increases contrast for better visibility</p>
+          </div>
+        </div>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="large-text" aria-describedby="large-text-desc">
+          <div class="setting-info">
+            <label for="large-text">Large Text</label>
+            <p id="large-text-desc" class="setting-description">Increases text size throughout the extension</p>
+          </div>
+        </div>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="dark-mode" aria-describedby="dark-mode-desc">
+          <div class="setting-info">
+            <label for="dark-mode">Use Dark Mode</label>
+            <p id="dark-mode-desc" class="setting-description">Use dark theme for all extension pages</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Motion & Animation</h2>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="reduced-motion" aria-describedby="reduced-motion-desc">
+          <div class="setting-info">
+            <label for="reduced-motion">Reduced Motion</label>
+            <p id="reduced-motion-desc" class="setting-description">Reduces or eliminates animations and transitions</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Screen Reader Support</h2>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="screen-reader-optimized" aria-describedby="screen-reader-desc">
+          <div class="setting-info">
+            <label for="screen-reader-optimized">Screen Reader Optimized</label>
+            <p id="screen-reader-desc" class="setting-description">Enhances compatibility with screen readers</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Keyboard Navigation</h2>
+        
+        <div class="setting-group checkbox">
+          <input type="checkbox" id="keyboard-shortcuts" aria-describedby="keyboard-shortcuts-desc">
+          <div class="setting-info">
+            <label for="keyboard-shortcuts">Enable Keyboard Shortcuts</label>
+            <p id="keyboard-shortcuts-desc" class="setting-description">Use keyboard shortcuts to control the extension</p>
+          </div>
+        </div>
+        
+        <div id="shortcuts-list" class="shortcuts-container" style="display: none;">
+          <h3>Available Shortcuts</h3>
+          <table class="shortcuts-table">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Shortcut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Reset Timer</td>
+                <td><kbd>Alt</kbd> + <kbd>R</kbd></td>
+              </tr>
+              <tr>
+                <td>Pause/Resume Timer</td>
+                <td><kbd>Alt</kbd> + <kbd>P</kbd></td>
+              </tr>
+              <tr>
+                <td>Toggle Do Not Disturb</td>
+                <td><kbd>Alt</kbd> + <kbd>D</kbd></td>
+              </tr>
+              <tr>
+                <td>Start Pomodoro</td>
+                <td><kbd>Alt</kbd> + <kbd>S</kbd></td>
+              </tr>
+              <tr>
+                <td>Stop Pomodoro</td>
+                <td><kbd>Alt</kbd> + <kbd>X</kbd></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <button id="save-settings" class="primary-button">Save Settings</button>
+      <button id="back-to-options" class="back-button">
+        <span class="icon">⬅️</span>
+        <span class="label">Back to Settings</span>
+      </button>
+      <div id="status-message"></div>
+    </footer>
+  </div>
+  
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="accessibility.js"></script>
+</body>
+</html>

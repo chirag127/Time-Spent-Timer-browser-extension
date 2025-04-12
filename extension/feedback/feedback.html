@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provide Feedback</title>
+  <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Provide Feedback</h1>
+      <p>Help us improve Time Spent Timer</p>
+    </header>
+    
+    <main>
+      <form id="feedback-form">
+        <div class="form-section">
+          <h2>Rate Your Experience</h2>
+          <div class="rating-container">
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5" title="5 stars">★</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4" title="4 stars">★</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3" title="3 stars">★</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2" title="2 stars">★</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1" title="1 star">★</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-section">
+          <h2>What do you like about the extension?</h2>
+          <textarea id="likes" name="likes" rows="3" placeholder="What features do you find most useful?"></textarea>
+        </div>
+        
+        <div class="form-section">
+          <h2>What could be improved?</h2>
+          <textarea id="improvements" name="improvements" rows="3" placeholder="Any suggestions for improvement?"></textarea>
+        </div>
+        
+        <div class="form-section">
+          <h2>Any features you'd like to see?</h2>
+          <textarea id="feature-requests" name="featureRequests" rows="3" placeholder="What features would you like us to add?"></textarea>
+        </div>
+        
+        <div class="form-section">
+          <h2>Contact Information (Optional)</h2>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com">
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" id="submit-feedback" class="primary-button">Submit Feedback</button>
+        </div>
+      </form>
+      
+      <div id="success-message" class="message success" style="display: none;">
+        <h2>Thank You!</h2>
+        <p>Your feedback has been submitted successfully. We appreciate your input!</p>
+        <button id="back-to-options" class="secondary-button">Back to Settings</button>
+      </div>
+      
+      <div id="error-message" class="message error" style="display: none;">
+        <h2>Oops!</h2>
+        <p>Something went wrong while submitting your feedback. Please try again later.</p>
+        <button id="try-again" class="secondary-button">Try Again</button>
+      </div>
+    </main>
+    
+    <footer>
+      <button id="cancel-feedback" class="back-button">
+        <span class="icon">⬅️</span>
+        <span class="label">Back to Settings</span>
+      </button>
+    </footer>
+  </div>
+  
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="feedback.js"></script>
+</body>
+</html>
