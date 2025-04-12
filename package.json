@@ -1,0 +1,14 @@
+{
+  "name": "time-spent-timer-browser-extension",
+  "version": "1.0.0",
+  "description": "A browser extension that shows a floating timer and nudges you after too much time on a site.",
+  "main": "svg-to-png.js",
+  "scripts": {
+    "generate-icons": "node svg-to-png.js"
+  },
+  "author": "Chirag Singhal",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.33.2"
+  }
+}

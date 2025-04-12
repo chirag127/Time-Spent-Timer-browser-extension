@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Time Spent Timer</title>
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
   <div class="container">
     <header>
       <h1>Time Spent Timer</h1>
     </header>
-    
+
     <main>
       <div class="current-site">
         <div class="site-info">
@@ -23,25 +25,25 @@
           <span id="time-spent">Loading...</span>
         </div>
       </div>
-      
+
       <div class="controls">
         <button id="reset-timer" class="control-button">
           <span class="icon">↻</span>
           <span class="label">Reset Timer</span>
         </button>
-        
+
         <button id="toggle-timer" class="control-button">
           <span class="icon" id="toggle-icon">⏸️</span>
           <span class="label" id="toggle-label">Pause Timer</span>
         </button>
-        
+
         <button id="toggle-dnd" class="control-button">
           <span class="icon" id="dnd-icon">🔔</span>
           <span class="label" id="dnd-label">Do Not Disturb</span>
         </button>
       </div>
     </main>
-    
+
     <footer>
       <button id="open-options" class="settings-button">
         <span class="icon">⚙️</span>
@@ -49,7 +51,11 @@
       </button>
     </footer>
   </div>
-  
-  <script type="module" src="popup.js"></script>
+
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/timer.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
 </body>
+
 </html>

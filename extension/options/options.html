@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Time Spent Timer Settings</title>
   <link rel="stylesheet" href="options.css">
 </head>
+
 <body>
   <div class="container">
     <header>
       <h1>Time Spent Timer Settings</h1>
       <p>Customize your timer experience</p>
     </header>
-    
+
     <main>
       <section class="settings-section">
         <h2>Timer Appearance</h2>
-        
+
         <div class="setting-group">
           <label for="position">Position:</label>
           <select id="position">
@@ -26,7 +28,7 @@
             <option value="bottom-left">Bottom Left</option>
           </select>
         </div>
-        
+
         <div class="setting-group">
           <label for="size">Size:</label>
           <select id="size">
@@ -35,13 +37,13 @@
             <option value="large">Large</option>
           </select>
         </div>
-        
+
         <div class="setting-group">
           <label for="opacity">Opacity:</label>
           <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.8">
           <span id="opacity-value">0.8</span>
         </div>
-        
+
         <div class="setting-group">
           <label for="theme">Theme:</label>
           <select id="theme">
@@ -49,56 +51,56 @@
             <option value="dark">Dark</option>
           </select>
         </div>
-        
+
         <div class="setting-group checkbox">
           <input type="checkbox" id="show-seconds" checked>
           <label for="show-seconds">Show seconds in timer</label>
         </div>
       </section>
-      
+
       <section class="settings-section">
         <h2>Nudge Settings</h2>
-        
+
         <div class="setting-group">
           <label for="first-nudge">First nudge (minutes):</label>
           <input type="number" id="first-nudge" min="1" max="60" value="5">
         </div>
-        
+
         <div class="setting-group">
           <label for="second-nudge">Second nudge (minutes):</label>
           <input type="number" id="second-nudge" min="1" max="120" value="10">
         </div>
-        
+
         <div class="setting-group">
           <label for="third-nudge">Third nudge (minutes):</label>
           <input type="number" id="third-nudge" min="1" max="180" value="15">
         </div>
-        
+
         <div class="setting-group">
           <label for="first-message">First nudge message:</label>
           <input type="text" id="first-message" value="Time flies when you're scrolling 🕊 — 5 minutes gone!">
         </div>
-        
+
         <div class="setting-group">
           <label for="second-message">Second nudge message:</label>
           <input type="text" id="second-message" value="10 minutes already! Want to take a stretch break?">
         </div>
-        
+
         <div class="setting-group">
           <label for="third-message">Third nudge message:</label>
           <input type="text" id="third-message" value="15 minutes here. Still intentional?">
         </div>
-        
+
         <div class="setting-group checkbox">
           <input type="checkbox" id="do-not-disturb">
           <label for="do-not-disturb">Do Not Disturb Mode (disable all nudges)</label>
         </div>
       </section>
-      
+
       <section class="settings-section">
         <h2>Site Blacklist</h2>
         <p>Add domains where the timer should be disabled (e.g., "example.com")</p>
-        
+
         <div class="setting-group">
           <div class="blacklist-container">
             <div class="blacklist-input">
@@ -110,14 +112,18 @@
         </div>
       </section>
     </main>
-    
+
     <footer>
       <button id="save-settings" class="primary-button">Save Settings</button>
       <button id="reset-settings">Reset to Defaults</button>
       <div id="status-message"></div>
     </footer>
   </div>
-  
-  <script type="module" src="options.js"></script>
+
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/timer.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="options.js"></script>
 </body>
+
 </html>

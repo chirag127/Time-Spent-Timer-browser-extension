@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Spent Analytics</title>
+  <link rel="stylesheet" href="analytics.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Time Spent Analytics</h1>
+      <p>Visualize your browsing habits</p>
+    </header>
+    
+    <main>
+      <div class="time-period-selector">
+        <button id="daily-btn" class="period-btn active">Daily</button>
+        <button id="weekly-btn" class="period-btn">Weekly</button>
+        <button id="monthly-btn" class="period-btn">Monthly</button>
+      </div>
+      
+      <section class="chart-section">
+        <h2>Time Distribution</h2>
+        <div class="chart-container">
+          <canvas id="time-distribution-chart"></canvas>
+        </div>
+      </section>
+      
+      <section class="chart-section">
+        <h2>Usage Trends</h2>
+        <div class="chart-container">
+          <canvas id="usage-trends-chart"></canvas>
+        </div>
+      </section>
+      
+      <section class="stats-section">
+        <h2>Key Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Most Visited</h3>
+            <p id="most-visited">Loading...</p>
+            <span id="most-visited-time">0h 0m</span>
+          </div>
+          <div class="stat-card">
+            <h3>Total Time</h3>
+            <p id="total-time">0h 0m</p>
+          </div>
+          <div class="stat-card">
+            <h3>Daily Average</h3>
+            <p id="daily-average">0h 0m</p>
+          </div>
+          <div class="stat-card">
+            <h3>Sites Visited</h3>
+            <p id="sites-visited">0</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="data-section">
+        <h2>Detailed Data</h2>
+        <div class="table-container">
+          <table id="detailed-data">
+            <thead>
+              <tr>
+                <th>Website</th>
+                <th>Time Spent</th>
+                <th>Percentage</th>
+                <th>Last Visit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <section class="export-section">
+        <h2>Export Data</h2>
+        <div class="export-buttons">
+          <button id="export-csv" class="export-btn">Export as CSV</button>
+          <button id="export-json" class="export-btn">Export as JSON</button>
+          <button id="clear-data" class="export-btn danger">Clear All Data</button>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <button id="back-to-options" class="back-button">
+        <span class="icon">⬅️</span>
+        <span class="label">Back to Settings</span>
+      </button>
+    </footer>
+  </div>
+  
+  <div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+      <h2>Confirm Action</h2>
+      <p id="modal-message">Are you sure you want to proceed?</p>
+      <div class="modal-buttons">
+        <button id="modal-cancel" class="modal-btn">Cancel</button>
+        <button id="modal-confirm" class="modal-btn danger">Confirm</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/timer.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="analytics.js"></script>
+</body>
+</html>
