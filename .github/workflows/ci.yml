@@ -1,0 +1,109 @@
+# CI/CD Pipeline for TimeWarden Browser Extension
+# Enforcing Apex Zero-Defect Standards (Late 2025/2026)
+
+name: CI/CD - TimeWarden Extension Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+# Define environment variables for reusability and strictness
+env:
+  REPO_NAME: TimeWarden-AI-Powered-Time-Tracking-Browser-Extension
+  USER_NAME: chirag127
+  NODE_VERSION: '20' # Modern LTS Node
+  EXTENSION_BUILD_DIR: dist
+
+jobs:
+  build_and_test:
+    name: Build, Lint, Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - name: 🚀 Checkout Repository (High Velocity Fetch)
+      uses: actions/checkout@v4
+
+    - name: 🧩 Setup Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: 📥 Install Dependencies (Using uv standard approach)
+      run: npm ci
+
+    - name: 🧹 Lint & Format Check (Biome/Ruff Standard)
+      # For JS/TS projects, Biome is the standard linter/formatter
+      run: npx @biomejs/biome check --apply-unsafe || npx @biomejs/biome check
+
+    - name: 🧪 Unit & Integration Testing (Vitest)
+      # Vitest is the mandated fast testing framework
+      run: npx vitest:run --coverage
+
+    - name: 📦 Build Extension Artifact (Vite)
+      # Ensure build process completes without errors
+      run: npm run build
+
+    - name: ✅ Check Build Artifact Existence
+      run: |
+        if [ ! -d "${{ env.EXTENSION_BUILD_DIR }}" ]; then
+          echo "Error: Build directory ${{ env.EXTENSION_BUILD_DIR }} not found. Build failed or configuration error."
+          exit 1
+        fi
+        echo "Build artifact created successfully in ${{ env.EXTENSION_BUILD_DIR }}."
+
+    - name: Upload Coverage Report
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./coverage/lcov.info
+        name: code-coverage-${{ github.run_id }}
+        flags: unit-tests
+
+    - name: Archive Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: time-warden-build-artifact
+        path: ${{ env.EXTENSION_BUILD_DIR }}
+
+  # Deployment Job (Only runs on successful push to main/develop)
+  deploy:
+    name: Semantic Release & Publishing
+    needs: build-and-test
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+    runs-on: ubuntu-latest
+    environment: 
+      name: ${{ github.ref == 'refs/heads/main' && 'Production' || 'Staging' }}
+    permissions:
+      contents: write # Required for creating releases/tags
+
+    steps:
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: time-warden-build-artifact
+        path: ${{ env.EXTENSION_BUILD_DIR }}
+
+    - name: Install Semantic Release Tools
+      run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog @semantic-release/exec
+
+    - name: Configure Git User
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+    - name: 🚀 Semantic Release Execution
+      # This executes release, tagging, and pushes release notes/updates CHANGELOG
+      env:
+        # Secrets needed for publishing to NPM/Extension Stores should be handled here
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+      run: |
+        # Note: Actual publishing logic (e.g., to Chrome Web Store/AMO) would be in a separate step
+        # using exec plugins, this step focuses on version bumping and tagging.
+        npx semantic-release --repository-url https://github.com/${{ env.USER_NAME }}/${{ env.REPO_NAME }}
