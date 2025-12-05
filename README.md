@@ -1,117 +1,156 @@
-# Time Spent Timer Browser Extension
+# FlowState-Digital-Wellness-Time-Tracker-Browser-Extension
 
-A lightweight, privacy-friendly browser extension that helps you manage your time online by displaying a floating timer on websites you visit. It gently nudges you after spending 5, 10, and 15 minutes on a site, encouraging mindful browsing.
+![Build Status](https://img.shields.io/github/actions/workflow/user/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension/ci.yml?style=flat-square&logo=github)
+![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension?style=flat-square&logo=codecov)
+![Tech Stack](https://img.shields.io/badge/Tech%20Stack-TS%7CVite%7CTailwind%7CTauri-blue?style=flat-square&logo=javascript)
+![Lint/Format](https://img.shields.io/badge/Lint%2FFmt-Biome-purple?style=flat-square&logo=biome)
+![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-orange?style=flat-square&logo=creativecommons)
+![GitHub Stars](https://img.shields.io/github/stars/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension?style=flat-square&logo=github)
 
-## Features
+<p align="center">
+  <a href="https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension/stargazers">
+    <img src="https://img.shields.io/github/stars/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension?style=social" alt="Star on GitHub">
+  </a>
+</p>
 
--   **Floating Timer UI**: Displays time spent on the current site with customizable appearance
--   **Gentle Nudges**: Customizable reminders at 5, 10, and 15 minutes (adjustable)
--   **Do Not Disturb Mode**: Temporarily disable nudges when you need to focus
--   **Site Blacklist**: Disable the timer on specific sites
--   **Customizable Settings**: Adjust timer position, size, opacity, and theme
--   **Privacy-Focused**: All data stays on your device, no tracking or data collection
+## The Digital Sanctuary for Your Browsing Habits
 
-## Installation
+FlowState is an elite, privacy-focused browser extension for digital wellness. It tracks time spent on websites and provides gentle, customizable nudges to encourage mindful browsing and maintain focus. Built with Manifest V3 and Zero-Telemetry principles.
 
-### From Chrome Web Store (Coming Soon)
+## 🚀 Architecture Overview
 
-1. Visit the Chrome Web Store
-2. Search for "Time Spent Timer"
-3. Click "Add to Chrome"
+mermaid
+graph TD
+    A[Browser Extension Core (Manifest V3)] --> B{Content Scripts}
+    A --> C{Background Service Worker}
+    B --> D[UI Components (React/Preact)]
+    C --> E[Time Tracking Logic]
+    C --> F[Nudge Engine]
+    C --> G[Storage (Local/Sync)]
+    E --> G
+    F --> G
+    A --> H[Popup UI]
+    H --> C
 
-### Manual Installation (Developer Mode)
 
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode" in the top-right corner
-4. Click "Load unpacked" and select the `extension` folder from this repository
+## 🧭 Table of Contents
 
-## Usage
+*   [About FlowState](#about-flowstate)
+*   [Key Features](#key-features)
+*   [Getting Started](#getting-started)
+*   [Development](#development)
+*   [Contribution](#contribution)
+*   [License](#license)
 
-After installation, the extension will automatically start tracking time spent on websites:
+## ✨ Key Features
 
--   A floating timer will appear on every website (can be customized in settings)
--   Nudges will appear after 5, 10, and 15 minutes (customizable)
--   Click the extension icon to see options for the current site
--   Access full settings by right-clicking the extension icon and selecting "Options"
+*   **Privacy-First Design:** Zero telemetry. All data is stored locally or synced via browser sync storage. No external data exfiltration.
+*   **Manifest V3 Compliant:** Built for the future of browser extensions.
+*   **Intelligent Time Tracking:** Accurately monitors time spent on individual websites.
+*   **Customizable Nudges:** Set personalized prompts and timers to encourage breaks or refocusing.
+*   **Focus Modes:** Configure specific times or website lists for enhanced concentration.
+*   **Elegant UI:** Clean and intuitive interface accessible via a browser popup.
+*   **Performance Optimized:** Built with Vite for fast development builds and optimized production output.
 
-## Customization
+## 💻 Getting Started
 
-### Timer Appearance
+### Prerequisites
 
--   **Position**: Top-right, top-left, bottom-right, or bottom-left
--   **Size**: Small, medium, or large
--   **Opacity**: Adjust transparency from 10% to 100%
--   **Theme**: Light or dark
--   **Show Seconds**: Toggle seconds display on/off
+*   Node.js (v18+ recommended)
+*   npm or Yarn
 
-### Nudge Settings
+### Installation
 
--   **Timing**: Customize when nudges appear (in minutes)
--   **Messages**: Personalize the nudge messages
--   **Do Not Disturb**: Temporarily disable all nudges
+1.  **Clone the repository:**
+    bash
+    git clone https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension.git
+    cd FlowState-Digital-Wellness-Time-Tracker-Browser-Extension
+    
 
-### Site Blacklist
+2.  **Install dependencies:**
+    bash
+    npm install
+    # or
+    yarn install
+    
 
--   Add domains where you don't want the timer to appear
+3.  **Run in development mode:**
+    bash
+    npm run dev
+    # or
+    yarn dev
+    
+    This will build the extension and watch for changes. You can then load the `dist` folder as an unpacked extension in your browser (e.g., Chrome, Edge).
 
-## Privacy
+### Production Build
 
-This extension:
+bash
+npm run build
+# or
+yarn build
 
--   Does not collect any data
--   Does not send any information to external servers
--   Stores all settings locally on your device
--   Does not track your browsing history
 
-## Development
+This command generates the optimized production build in the `dist` folder.
 
-This extension is built using:
+## 🛠️ Development Standards & Principles
 
--   Manifest V3
--   HTML/CSS/JavaScript
--   Chrome Extension APIs
+This project adheres to the following core principles:
 
-### Project Structure
+*   **SOLID:** Enhancing maintainability and scalability.
+*   **DRY (Don't Repeat Yourself):** Minimizing code duplication.
+*   **YAGNI (You Ain't Gonna Need It):** Focusing on essential features.
+*   **Performance:** Prioritizing efficient code and resource usage.
+*   **Security:** Implementing best practices for browser extensions, especially regarding Manifest V3 and data privacy.
 
-```
-extension/
-├── manifest.json
-├── background/
-│   └── background.js            # Tab monitoring, timer logic, alarm triggers
-├── content/
-│   └── content.js               # Injects floating timer UI
-│   └── timerUI.css              # Timer UI styles
-├── popup/
-│   └── popup.html               # Basic popup
-│   └── popup.js
-│   └── popup.css
-├── options/
-│   └── options.html             # Settings page
-│   └── options.js               # Save/load preferences
-│   └── options.css
-├── utils/
-│   └── timer.js                 # Timer utilities
-│   └── storage.js               # Storage wrapper
-│   └── constants.js             # Default settings
-├── assets/
-│   └── icon128.png              # Extension icon
-│   └── icon48.png
-│   └── icon16.png
-└── _locales/
-    └── en/
-        └── messages.json        # i18n support
-```
+## <details>
+<summary>🤖 AI Agent Directives</summary>
 
-## Contributing
+### Core Directives
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+*   **Repository Name:** `FlowState-Digital-Wellness-Time-Tracker-Browser-Extension`
+*   **Primary Function:** Digital Wellness & Time Tracking Browser Extension
+*   **Platform:** Browser Extension (Manifest V3)
+*   **Technology Stack:** TypeScript, Vite, TailwindCSS, Biome, Playwright, React/Preact.
 
-## License
+### Architectural Patterns
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+*   **Adhere to Manifest V3 specifications:** Employ service workers, secure content scripts, and appropriate storage mechanisms.
+*   **Feature-Sliced Design (FSD) principles:** Organize code into features, layers, and segments for maintainability and scalability.
+*   **Component-Based Architecture:** Utilize React/Preact for declarative UI development.
+*   **State Management:** Employ Signals or similar efficient state management patterns.
 
-## Acknowledgments
+### Linting & Formatting
 
--   Inspired by the need for mindful browsing in our increasingly digital world
--   Thanks to all contributors and users for their feedback and support
+*   **Tool:** Biome (v1.7.0+)
+*   **Configuration:** `.biome.json` file in the root directory.
+*   **Verification Command:** `npm run lint` or `yarn lint`
+*   **Formatting Command:** `npm run format` or `yarn format`
+
+### Testing
+
+*   **Unit Testing:** Vitest (v2.x+)
+*   **E2E Testing:** Playwright (v1.x+)
+*   **Test Runner:** `npm test` or `yarn test`
+
+### Verification Commands
+
+*   **Development Server:** `npm run dev` / `yarn dev`
+*   **Production Build:** `npm run build` / `yarn build`
+*   **Linting:** `npm run lint` / `yarn lint`
+*   **Formatting:** `npm run format` / `yarn format`
+*   **Unit Tests:** `npm test:unit` / `yarn test:unit`
+*   **E2E Tests:** `npm test:e2e` / `yarn test:e2e`
+
+### Security Protocols
+
+*   **Manifest V3 Compliance:** Strict adherence to security best practices, including leveraging the service worker model and content security policies.
+*   **Data Privacy:** No unnecessary data collection. User data remains local or uses browser sync storage only.
+*   **Dependency Auditing:** Regularly audit dependencies for vulnerabilities.
+
+</details>
+
+## 📜 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
+
+See the `LICENSE` file for more details.
