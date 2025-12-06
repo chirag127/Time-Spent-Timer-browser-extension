@@ -1,0 +1,12 @@
+build:
+  ci: "https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension/actions/workflows/ci.yml"
+coverage:
+  status:
+    codecov: "https://codecov.io/gh/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension"
+links:
+  repo: "https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension"
+license:
+  type: "CC BY-NC 4.0"
+  url: "https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension/blob/main/LICENSE"
+footer:
+  repository: "https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension"
