@@ -22,67 +22,49 @@
 ---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `TimeWarden-AI-Powered-Time-Tracking-Browser-Extension`, is a browser extension leveraging JavaScript.
+**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `FlowState-Digital-Wellness-Time-Tracker-Browser-Extension`, is a browser extension built with TypeScript and Manifest V3.
 
-*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript/JavaScript)**
-    *   **Stack:** This project utilizes **JavaScript (ES2024 standards)**, bundled with **Vite 7** (using Rolldown for optimal performance). For native desktop packaging (if applicable), **Tauri v2.x** is the standard. For browser extension development, **WXT (Web Extension Tooling)** is employed for cross-browser compatibility and efficient development.
-    *   **State Management:** Employ standardized **Signals** for efficient and declarative state updates across the application.
-    *   **Linting & Formatting:** **Biome** is mandated for ultra-fast, unified linting and code formatting, ensuring code quality and consistency. Configuration is defined in `biome.json`.
-    *   **Testing:** **Vitest** is the standard for unit and component testing, integrated seamlessly with Vite. For end-to-end (E2E) testing, **Playwright** is utilized to ensure robust cross-browser verification.
-    *   **Architecture:** Implement **Feature-Sliced Design (FSD)** principles for maintainable and scalable browser extension architecture. Organize code into `features`, `entities`, `widgets`, `shared`, and `app` layers.
-    *   **AI Integration:** The AI component (`AI-Powered Time Tracking Analytics`) is integrated via **local Web Workers or serverless functions**. Prioritize privacy by performing AI processing client-side where feasible. If external API calls are necessary, they must use **secure, authenticated requests** and adhere to data minimization principles. API keys must be managed securely, never hardcoded.
+*   **PRIMARY SCENARIO A: WEB / APP / EXTENSION (TypeScript) - APEX TOOLCHAIN V2026**
+    *   **Stack:** This project leverages **TypeScript 6.x (Strict)**. Key tools include **Vite 7** (for fast builds and development server with Rolldown), **Tauri v2.x** (for potential future native integration, though primary focus is extension), and **WXT (Web Extension Tooling)** for robust Manifest V3 extension development.
+    *   **Architecture:** Adheres to **Feature-Sliced Design (FSD)** principles for modularity and maintainability. State management utilizes standardized **Signals**.
+    *   **Styling:** **TailwindCSS v4** for utility-first, highly customizable styling.
+    *   **Linting/Formatting:** **Biome 3.x** for ultra-fast, all-in-one code quality.
+    *   **Testing:** **Vitest 2.x** for fast unit and integration tests, and **Playwright 2.x** for end-to-end testing.
+    *   **Performance:** Focus on **Zero-Telemetry**, respecting user privacy as a core tenet.
 
-*   **SECONDARY SCENARIO: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable for this project's primary function.***
-    *   **Stack:** Rust (Cargo), Go (Modules).
+*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable for this project's primary function.***
+    *   **Stack:** Rust (Cargo) or Go (Modules).
     *   **Lint:** Clippy / GolangCI-Lint.
     *   **Architecture:** Hexagonal Architecture (Ports & Adapters).
 
-*   **TERTIARY SCENARIO: DATA / SCRIPTS / AI (Python) - *Not applicable for this project's primary function.***
+*   **TERTIARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable for this project's primary function.***
     *   **Stack:** uv (Manager), Ruff (Linter), Pytest (Test).
     *   **Architecture:** Modular Monolith or Microservices.
 
 ---
 
-## 4. DEVELOPMENT LIFECYCLE & MANDATES
-*   **Source Control:** **Git** is mandatory. All commits must adhere to conventional commit standards.
-*   **CI/CD:** GitHub Actions (`ci.yml`) must automate linting, testing, building, and deployment workflows.
-*   **Code Quality:** Enforce **SOLID**, **DRY**, and **YAGNI** principles.
-*   **Security:** Implement security best practices: input validation, secure API key management, dependency scanning, and adherence to OWASP Top 10 for Browser Extensions.
-*   **Testing:** Maintain a minimum of **85% code coverage** for critical modules.
-*   **Documentation:** All new features require comprehensive documentation.
+## 4. DEVELOPMENT PRINCIPLES & AGENT DIRECTIVES
+*   **SOLID:** Adhere strictly to Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles.
+*   **DRY:** Eliminate redundancy in code and configuration.
+*   **YAGNI:** Implement features only when they are demonstrably needed.
+*   **Privacy by Design:** Zero-Telemetry is MANDATORY. No user data collection without explicit, informed consent and robust anonymization.
+*   **Manifest V3 Compliance:** Ensure all extension features comply with Manifest V3 security and performance guidelines.
+*   **Verification Commands (Example for TS/Vite/WXT):**
+    *   `git clone https://github.com/chirag127/FlowState-Digital-Wellness-Time-Tracker-Browser-Extension.git`
+    *   `cd FlowState-Digital-Wellness-Time-Tracker-Browser-Extension`
+    *   `npm install` (or `pnpm install` if specified)
+    *   `npm run dev` (or `pnpm dev`): For local development.
+    *   `npm run build` (or `pnpm build`): For production builds.
+    *   `npm run lint` (or `pnpm lint`): To check code quality with Biome.
+    *   `npm run test` (or `pnpm test`): To run Vitest unit/integration tests.
+    *   `npm run test:e2e` (or `pnpm test:e2e`): To run Playwright end-to-end tests.
 
 ---
 
-## 5. AI AGENT OPERATIONAL GUIDELINES
-*   **Agent Directive:** This repository is managed by the **Apex Technical Authority AI Agent**.
-*   **Purpose:** The AI's mandate is to ensure the repository consistently adheres to **December 2025/2026 industry standards**, prioritizing **scalability, maintainability, security, and performance**. The agent will proactively identify and rectify deviations from the Apex Toolchain and established architectural patterns.
-*   **Intervention Protocol:** The agent will automatically update configurations, refactor code, and adjust dependencies to align with the specified Apex Toolchain (`Biome`, `Vite 7`, `WXT`, `Vitest`, `Playwright`, `Signals`).
-*   **AI Integration Strategy:** For `TimeWarden-AI-Powered-Time-Tracking-Browser-Extension`, AI features (e.g., analytics, nudges) must be implemented with a strong emphasis on **privacy and local processing**. Use Web Workers for asynchronous, non-blocking AI computations within the browser extension.
-*   **Verification Commands:**
-    *   `pnpm install` or `npm install` (or `yarn install` if specified)
-    *   `pnpm lint` or `npm run lint` (or `yarn lint`) - Uses Biome
-    *   `pnpm test` or `npm test` (or `yarn test`) - Uses Vitest
-    *   `pnpm test:e2e` or `npm run test:e2e` (or `yarn test:e2e`) - Uses Playwright
-    *   `pnpm dev` or `npm run dev` (or `yarn dev`) - Runs Vite dev server
-    *   `pnpm build` or `npm run build` (or `yarn build`) - Builds for production using Vite/WXT
-
----
-
-## 6. APEX REPOSITORY NAMING CONVENTION
-*   **Format:** `<Product-Name>-<Primary-Function>-<Platform>-<Type>`
-*   **Example:** `TimeWarden-AI-Powered-Time-Tracking-Browser-Extension`
-*   **Rules:** Title-Case-With-Hyphens. 3-10 words. Includes high-volume keywords. No numbers, emojis, underscores, or generic qualifiers without specifics.
-
----
-
-## 7. LICENSE & COMPLIANCE
-*   **License:** CC BY-NC 4.0 (Creative Commons Attribution-NonCommercial 4.0 International)
-*   **Standard 11 Compliance:** All repositories MUST include: `README.md`, `PROPOSED_README.md`, `badges.yml`, `LICENSE`, `.gitignore`, `.github/workflows/ci.yml`, `.github/CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/bug_report.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `.github/SECURITY.md`, and `AGENTS.md`.
-
----
-
-## 8. DYNAMIC URL & BADGE PROTOCOL
-*   **Base URL:** `https://github.com/chirag127/TimeWarden-AI-Powered-Time-Tracking-Browser-Extension`
-*   **Badge Style:** `flat-square` (Mandatory for all Shields.io badges).
-*   **Username:** `chirag127` (Mandatory for all Shields.io badges).
-*   **Consistency:** All internal and external links must reference the current repository name. Do not use outdated or generic URLs.
+## 5. AGENT INTERACTION GUIDELINES
+*   **Repository Name:** `FlowState-Digital-Wellness-Time-Tracker-Browser-Extension`
+*   **Username:** `chirag127`
+*   **Primary Language:** TypeScript
+*   **Framework:** Vite, WXT
+*   **Key Technologies:** Manifest V3, TailwindCSS v4, Biome, Vitest, Playwright
+*   **Interaction Protocol:** Agents must prioritize understanding the core purpose of `FlowState`—digital wellness and time tracking—and align all actions accordingly. All generated code, tests, and documentation must reflect this purpose and adhere to the specified technology stack and principles.
