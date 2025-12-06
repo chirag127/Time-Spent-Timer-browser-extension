@@ -1,51 +1,33 @@
-# Dependency Caches & Artifacts
+# Dependency Management
 node_modules/
 /dist
 /build
 
-# Logging and Runtime Data
+# TypeScript / Build Artifacts
+*.tsbuildinfo
 *.log
-*.tmp
-npm-debug.log*
-
-# Editor & OS Specific Files
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# Build Artifacts for Browser Extensions
-*.zip
-*.crx
-
-# Test/Coverage Reports
-/coverage
 *.cache
 
-# Source Maps (usually generated but excluded from distribution)
-**/*.map
+# Vite/Rollup/Parcel Artifacts
+.vite-cache/
+/npm-debug.log*
 
-# Specific to Modern JS Tooling (Vite/ESBuild/Biome/etc.)
-.vite/
-/coverage
-/dist-ssr
+# Browser Extension Specific
+.parcel-cache/
+*.crx
+*.pem
 
-# Environment Variables (NEVER commit secrets)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Testing & Linting Artifacts
+coverage/
+.biome-cache/
 
-# Webpack/Rollup specific (if used for production bundling)
-/public/build/
+# macOS
+.DS_Store
 
-# Browsersync/LiveReload artifacts
-.bs/
+# Logs
+*.log
+npm-debug.log*
 
-# Specific to browser extension development (if using build tools that create profiles)
-/profiles/
-
-# Configuration for privacy-focused projects
-/data/local_storage_backup.db
-/logs/
+# IDE/Editor Artifacts
+.vscode/
+.idea/
